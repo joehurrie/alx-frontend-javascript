@@ -1,62 +1,69 @@
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
+interface Teachers {
+  firstName: string;
+  lastName: string;
   fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
   location: string;
-  [key: string]: any;
+  contract?: any;
 }
-
-const teacher1: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
-  fullTimeEmployee: true,
-  location: 'Nairobi',
-  contract: true,
+const teacher3: Teachers = {
+  firstName: "John",
+  fullTimeEmployee: false,
+  lastName: "Doe",
+  location: "London",
+  contract: false,
 };
+console.log(teacher3);
 
-interface Directors extends Teacher {
+interface Directors {
+  firstName: string;
+  lastName: string;
+  fullTimeEmployee: boolean;
+  location: string;
   numberOfReports: number;
+  contract?: any;
 }
 
 const director1: Directors = {
-  firstName: 'Jane',
-  lastName: 'Mutua',
+  firstName: "John",
+  lastName: "Doe",
+  location: "London",
   fullTimeEmployee: true,
-  location: 'Mombasa',
-  numberOfReports: 10,
+  numberOfReports: 17,
 };
+console.log(director1);
 
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+interface printTeacherFunction
+{
+  (firstname:string, lastname:string):string
 }
 
-const printTeacher: printTeacherFunction = (firstName, lastName) =>
-  `${firstName.charAt(0)}. ${lastName}`;
-
-console.log(printTeacher('John', 'Doe')); // Output: J. Doe
+const printTeachers: printTeacherFunction = (firstname, lastname) => {
+  let value: string = firstname[0] + ". " + lastname;
+  return value;
+}
 
 interface StudentConstructor {
-  firstName: string;
-  lastName: string;
+  new (firstName: string, lastName: string): StudentInterface;
 }
 
-interface StudentClassInterface {
+interface StudentInterface {
+  firstName: string;
+  lastName: string;
   workOnHomework(): string;
   displayName(): string;
 }
 
-class StudentClass implements StudentClassInterface {
+class StudentClass implements StudentInterface {
   firstName: string;
   lastName: string;
 
-  constructor({ firstName, lastName }: StudentConstructor) {
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
 
   workOnHomework(): string {
-    return 'Currently working';
+    return "Currently working";
   }
 
   displayName(): string {
@@ -64,6 +71,3 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-const student = new StudentClass({ firstName: 'Amina', lastName: 'Kariuki' });
-console.log(student.displayName()); // Output: Amina
-console.log(student.workOnHomework()); // Output: Currently working
