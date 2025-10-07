@@ -63,7 +63,7 @@ class StudentClass implements StudentInterface {
   }
 
   workOnHomework(): string {
-    return "Currently working";
+    return "Currently working on it";
   }
 
   displayName(): string {
@@ -71,3 +71,4 @@ class StudentClass implements StudentInterface {
   }
 }
 
+// Exporting the interfaces and class for potential external use ==
