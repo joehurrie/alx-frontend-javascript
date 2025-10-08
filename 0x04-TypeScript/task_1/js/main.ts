@@ -1,11 +1,12 @@
-interface Teachers {
+interface Teacher {
   firstName: string;
   lastName: string;
   fullTimeEmployee: boolean;
   location: string;
   contract?: any;
 }
-const teacher3: Teachers = {
+
+const teacher3: Teacher = {
   firstName: "John",
   fullTimeEmployee: false,
   lastName: "Doe",
@@ -14,16 +15,11 @@ const teacher3: Teachers = {
 };
 console.log(teacher3);
 
-interface Directors {
-  firstName: string;
-  lastName: string;
-  fullTimeEmployee: boolean;
-  location: string;
+interface Director extends Teacher {
   numberOfReports: number;
-  contract?: any;
 }
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "John",
   lastName: "Doe",
   location: "London",
