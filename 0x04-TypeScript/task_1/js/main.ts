@@ -71,3 +71,10 @@ class StudentClass implements StudentInterface {
   }
 }
 
+<<<<<<< HEAD
+=======
+const student = new StudentClass({ firstName: 'Amina', lastName: 'Kariuki' });
+console.log(student.displayName()); // Output: Amina
+
+console.log(student.workOnHomework()); // Output: Currently working
+>>>>>>> 4203ed1 (task2 Director function implemented)
