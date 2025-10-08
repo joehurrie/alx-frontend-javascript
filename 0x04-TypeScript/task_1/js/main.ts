@@ -28,14 +28,8 @@ const director1: Director = {
 };
 console.log(director1);
 
-interface printTeacherFunction
-{
-  (firstname:string, lastname:string):string
-}
-
-const printTeachers: printTeacherFunction = (firstname, lastname) => {
-  let value: string = firstname[0] + ". " + lastname;
-  return value;
+function printTeacher({ firstName, lastName }: Teacher): string {
+  return `${firstName}. ${lastName}`;
 }
 
 interface StudentConstructor {
