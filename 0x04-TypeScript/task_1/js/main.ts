@@ -1,12 +1,11 @@
-interface Teacher {
+interface Teachers {
   firstName: string;
   lastName: string;
   fullTimeEmployee: boolean;
   location: string;
   contract?: any;
 }
-
-const teacher3: Teacher = {
+const teacher3: Teachers = {
   firstName: "John",
   fullTimeEmployee: false,
   lastName: "Doe",
@@ -15,11 +14,16 @@ const teacher3: Teacher = {
 };
 console.log(teacher3);
 
-interface Director extends Teacher {
+interface Directors {
+  firstName: string;
+  lastName: string;
+  fullTimeEmployee: boolean;
+  location: string;
   numberOfReports: number;
+  contract?: any;
 }
 
-const director1: Director = {
+const director1: Directors = {
   firstName: "John",
   lastName: "Doe",
   location: "London",
@@ -28,8 +32,14 @@ const director1: Director = {
 };
 console.log(director1);
 
-function printTeacher({ firstName, lastName }: Teacher): string {
-  return `${firstName}. ${lastName}`;
+interface printTeacherFunction
+{
+  (firstname:string, lastname:string):string
+}
+
+const printTeachers: printTeacherFunction = (firstname, lastname) => {
+  let value: string = firstname[0] + ". " + lastname;
+  return value;
 }
 
 interface StudentConstructor {
@@ -53,7 +63,7 @@ class StudentClass implements StudentInterface {
   }
 
   workOnHomework(): string {
-    return "Currently working on it";
+    return "Currently working";
   }
 
   displayName(): string {
@@ -61,4 +71,3 @@ class StudentClass implements StudentInterface {
   }
 }
 
-// Exporting the interfaces and class for potential external use ==
